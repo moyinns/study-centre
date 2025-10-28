@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0pu00ybev5ef"]
+[gd_scene load_steps=12 format=3 uid="uid://c0pu00ybev5ef"]
 
 [ext_resource type="Script" uid="uid://mnshor0jwtdw" path="res://main screen/main_screen.gd" id="1_ifqbj"]
 [ext_resource type="Texture2D" uid="uid://dsyf3qnv8hc34" path="res://main screen/bg main page + notebook.PNG" id="1_ysh8v"]
@@ -6,6 +6,9 @@
 [ext_resource type="FontFile" uid="uid://cecvhleu5gw54" path="res://others/LEMONMILK-Light.otf" id="4_eejo4"]
 [ext_resource type="Script" uid="uid://laff61aa7orh" path="res://main screen/timer_stuff.gd" id="4_xeb60"]
 [ext_resource type="Script" uid="uid://cvctdh1kqfais" path="res://main screen/stopwatch_stuff.gd" id="6_ogkqy"]
+[ext_resource type="FontFile" uid="uid://cmjpwacjbpu55" path="res://others/kindergarten.ttf" id="7_cxh1e"]
+[ext_resource type="Texture2D" uid="uid://b3c8usji2qkbw" path="res://others/sparkles-removebg-preview.png" id="8_ai1m7"]
+[ext_resource type="Texture2D" uid="uid://cbo7ne2jykhm4" path="res://others/star remove bg.PNG" id="9_683ar"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_24h70"]
 bg_color = Color(0.9882353, 0.96862745, 0.94509804, 1)
@@ -137,24 +140,24 @@ text = ">"
 script = ExtResource("6_ogkqy")
 
 [node name="stopwatch box2" type="ColorRect" parent="stopwatch stuff"]
-offset_left = 804.0
-offset_top = 168.0
-offset_right = 1163.116
-offset_bottom = 452.0
+offset_left = 799.0
+offset_top = 143.0
+offset_right = 1158.116
+offset_bottom = 427.0
 color = Color(0.8509804, 0.42352942, 0.41568628, 1)
 
 [node name="stopwatch box" type="ColorRect" parent="stopwatch stuff"]
-offset_left = 809.0
-offset_top = 172.0
-offset_right = 1158.0
-offset_bottom = 448.0
+offset_left = 804.0
+offset_top = 147.0
+offset_right = 1153.0
+offset_bottom = 423.0
 color = Color(0.9882353, 0.96862745, 0.94509804, 1)
 
 [node name="stopwatch timer" type="Label" parent="stopwatch stuff"]
-offset_left = 812.0
-offset_top = 172.0
-offset_right = 1157.0
-offset_bottom = 228.0
+offset_left = 807.0
+offset_top = 147.0
+offset_right = 1152.0
+offset_bottom = 203.0
 theme_override_colors/font_color = Color(0.8509804, 0.42352942, 0.41568628, 1)
 theme_override_fonts/font = ExtResource("2_ye3fn")
 theme_override_font_sizes/font_size = 48
@@ -162,43 +165,89 @@ text = "stopwatch"
 horizontal_alignment = 1
 
 [node name="stopwatch label" type="Label" parent="stopwatch stuff"]
-offset_left = 867.0
-offset_top = 253.0
-offset_right = 1107.0
-offset_bottom = 360.0
+offset_left = 913.0
+offset_top = 228.0
+offset_right = 1153.0
+offset_bottom = 335.0
 theme_override_colors/font_color = Color(0.9647059, 0.73333335, 0.7176471, 1)
 theme_override_fonts/font = ExtResource("4_eejo4")
 theme_override_font_sizes/font_size = 80
 
 [node name="start sw button" type="Button" parent="stopwatch stuff"]
-offset_left = 819.0
-offset_top = 404.0
-offset_right = 925.0
-offset_bottom = 440.0
+offset_left = 814.0
+offset_top = 379.0
+offset_right = 920.0
+offset_bottom = 415.0
 theme_override_colors/font_color = Color(0.8509804, 0.42352942, 0.41568628, 1)
 theme_override_fonts/font = ExtResource("4_eejo4")
 theme_override_styles/normal = SubResource("StyleBoxFlat_24h70")
 text = "START"
 
 [node name="stop sw button" type="Button" parent="stopwatch stuff"]
-offset_left = 932.0
-offset_top = 404.0
-offset_right = 1038.0
-offset_bottom = 440.0
+offset_left = 927.0
+offset_top = 379.0
+offset_right = 1033.0
+offset_bottom = 415.0
 theme_override_colors/font_color = Color(0.8509804, 0.42352942, 0.41568628, 1)
 theme_override_fonts/font = ExtResource("4_eejo4")
 theme_override_styles/normal = SubResource("StyleBoxFlat_24h70")
 text = "stop"
 
 [node name="reset sw button" type="Button" parent="stopwatch stuff"]
-offset_left = 1044.0
-offset_top = 404.0
-offset_right = 1150.0
-offset_bottom = 440.0
+offset_left = 1039.0
+offset_top = 379.0
+offset_right = 1145.0
+offset_bottom = 415.0
 theme_override_colors/font_color = Color(0.8509804, 0.42352942, 0.41568628, 1)
 theme_override_fonts/font = ExtResource("4_eejo4")
 theme_override_styles/normal = SubResource("StyleBoxFlat_24h70")
 text = "reset"
+
+[node name="quote" type="Label" parent="."]
+offset_left = 462.0
+offset_top = 149.0
+offset_right = 789.0
+offset_bottom = 356.0
+theme_override_colors/font_color = Color(0.8509804, 0.42352942, 0.41568628, 1)
+theme_override_fonts/font = ExtResource("7_cxh1e")
+theme_override_font_sizes/font_size = 38
+text = "the little progress you have made today still matters"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="new quote button" type="Button" parent="."]
+offset_left = 525.0
+offset_top = 291.0
+offset_right = 742.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.8509804, 0.42352942, 0.41568628, 1)
+theme_override_fonts/font = ExtResource("4_eejo4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_24h70")
+text = "click for new quote"
+
+[node name="sparkles" type="TextureRect" parent="."]
+offset_left = 1077.0
+offset_top = 99.0
+offset_right = 1202.0
+offset_bottom = 224.0
+texture = ExtResource("8_ai1m7")
+expand_mode = 1
+
+[node name="stars" type="TextureRect" parent="."]
+offset_left = 760.0
+offset_top = 424.0
+offset_right = 873.0
+offset_bottom = 537.0
+texture = ExtResource("9_683ar")
+expand_mode = 1
+
+[node name="stars2" type="TextureRect" parent="."]
+offset_left = 12.0
+offset_top = 106.0
+offset_right = 125.0
+offset_bottom = 219.0
+texture = ExtResource("9_683ar")
+expand_mode = 1
 
 [connection signal="pressed" from="timer stuff/start timer button" to="timer stuff" method="_on_start_timer_button_pressed"]
 [connection signal="pressed" from="timer stuff/stop timer button" to="timer stuff" method="_on_stop_timer_button_pressed"]
@@ -206,3 +255,4 @@ text = "reset"
 [connection signal="pressed" from="stopwatch stuff/start sw button" to="stopwatch stuff" method="_on_start_sw_button_pressed"]
 [connection signal="pressed" from="stopwatch stuff/stop sw button" to="stopwatch stuff" method="_on_stop_sw_button_pressed"]
 [connection signal="pressed" from="stopwatch stuff/reset sw button" to="stopwatch stuff" method="_on_reset_sw_button_pressed"]
+[connection signal="pressed" from="new quote button" to="." method="_on_new_quote_button_pressed"]
