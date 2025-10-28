@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bafeb4iqrpqil"]
+
+[ext_resource type="Script" uid="uid://ckm2so7ja77qr" path="res://opening_screen/opening_screen.gd" id="1_fmed4"]
+[ext_resource type="Texture2D" uid="uid://b76faprcmpfhf" path="res://opening_screen/bg opening screen.PNG" id="2_ieq55"]
+
+[node name="opening_screen" type="Node2D"]
+script = ExtResource("1_fmed4")
+
+[node name="bg opening screen" type="TextureRect" parent="."]
+offset_right = 1200.0
+offset_bottom = 788.0
+texture = ExtResource("2_ieq55")
+expand_mode = 1
+
+[node name="play button" type="Button" parent="."]
+show_behind_parent = true
+offset_left = 668.0
+offset_top = 429.0
+offset_right = 1014.0
+offset_bottom = 522.0
+
+[node name="quit button" type="Button" parent="."]
+show_behind_parent = true
+offset_left = 667.0
+offset_top = 562.0
+offset_right = 1013.0
+offset_bottom = 655.0
+
+[connection signal="pressed" from="play button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="quit button" to="." method="_on_quit_button_pressed"]
