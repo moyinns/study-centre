@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0pu00ybev5ef"]
+[gd_scene load_steps=9 format=3 uid="uid://c0pu00ybev5ef"]
 
 [ext_resource type="Script" uid="uid://mnshor0jwtdw" path="res://main screen/main_screen.gd" id="1_ifqbj"]
 [ext_resource type="Texture2D" uid="uid://dsyf3qnv8hc34" path="res://main screen/bg main page + notebook.PNG" id="1_ysh8v"]
 [ext_resource type="FontFile" uid="uid://1yodsqdfdd4s" path="res://others/SetiaHati-Regular.ttf" id="2_ye3fn"]
 [ext_resource type="FontFile" uid="uid://cecvhleu5gw54" path="res://others/LEMONMILK-Light.otf" id="4_eejo4"]
 [ext_resource type="Script" uid="uid://laff61aa7orh" path="res://main screen/timer_stuff.gd" id="4_xeb60"]
+[ext_resource type="Script" uid="uid://cvctdh1kqfais" path="res://main screen/stopwatch_stuff.gd" id="6_ogkqy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_24h70"]
 bg_color = Color(0.9882353, 0.96862745, 0.94509804, 1)
@@ -13,6 +14,8 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.8509804, 0.42352942, 0.41568628, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xeb60"]
 
 [node name="main screen" type="Node2D"]
 script = ExtResource("1_ifqbj")
@@ -119,5 +122,87 @@ text = "25:00"
 [node name="break timer" type="Timer" parent="timer stuff"]
 wait_time = 300.0
 
+[node name="switch button" type="Button" parent="timer stuff"]
+offset_left = 1129.0
+offset_top = 587.0
+offset_right = 1156.0
+offset_bottom = 630.0
+theme_override_colors/font_color = Color(0.8509804, 0.42352942, 0.41568628, 1)
+theme_override_fonts/font = ExtResource("4_eejo4")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xeb60")
+text = ">"
+
+[node name="stopwatch stuff" type="Node2D" parent="."]
+script = ExtResource("6_ogkqy")
+
+[node name="stopwatch box2" type="ColorRect" parent="stopwatch stuff"]
+offset_left = 804.0
+offset_top = 168.0
+offset_right = 1163.116
+offset_bottom = 452.0
+color = Color(0.8509804, 0.42352942, 0.41568628, 1)
+
+[node name="stopwatch box" type="ColorRect" parent="stopwatch stuff"]
+offset_left = 809.0
+offset_top = 172.0
+offset_right = 1158.0
+offset_bottom = 448.0
+color = Color(0.9882353, 0.96862745, 0.94509804, 1)
+
+[node name="stopwatch timer" type="Label" parent="stopwatch stuff"]
+offset_left = 812.0
+offset_top = 172.0
+offset_right = 1157.0
+offset_bottom = 228.0
+theme_override_colors/font_color = Color(0.8509804, 0.42352942, 0.41568628, 1)
+theme_override_fonts/font = ExtResource("2_ye3fn")
+theme_override_font_sizes/font_size = 48
+text = "stopwatch"
+horizontal_alignment = 1
+
+[node name="stopwatch label" type="Label" parent="stopwatch stuff"]
+offset_left = 867.0
+offset_top = 253.0
+offset_right = 1107.0
+offset_bottom = 360.0
+theme_override_colors/font_color = Color(0.9647059, 0.73333335, 0.7176471, 1)
+theme_override_fonts/font = ExtResource("4_eejo4")
+theme_override_font_sizes/font_size = 80
+
+[node name="start sw button" type="Button" parent="stopwatch stuff"]
+offset_left = 819.0
+offset_top = 404.0
+offset_right = 925.0
+offset_bottom = 440.0
+theme_override_colors/font_color = Color(0.8509804, 0.42352942, 0.41568628, 1)
+theme_override_fonts/font = ExtResource("4_eejo4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_24h70")
+text = "START"
+
+[node name="stop sw button" type="Button" parent="stopwatch stuff"]
+offset_left = 932.0
+offset_top = 404.0
+offset_right = 1038.0
+offset_bottom = 440.0
+theme_override_colors/font_color = Color(0.8509804, 0.42352942, 0.41568628, 1)
+theme_override_fonts/font = ExtResource("4_eejo4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_24h70")
+text = "stop"
+
+[node name="reset sw button" type="Button" parent="stopwatch stuff"]
+offset_left = 1044.0
+offset_top = 404.0
+offset_right = 1150.0
+offset_bottom = 440.0
+theme_override_colors/font_color = Color(0.8509804, 0.42352942, 0.41568628, 1)
+theme_override_fonts/font = ExtResource("4_eejo4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_24h70")
+text = "reset"
+
 [connection signal="pressed" from="timer stuff/start timer button" to="timer stuff" method="_on_start_timer_button_pressed"]
 [connection signal="pressed" from="timer stuff/stop timer button" to="timer stuff" method="_on_stop_timer_button_pressed"]
+[connection signal="pressed" from="timer stuff/switch button" to="timer stuff" method="_on_switch_button_pressed"]
+[connection signal="pressed" from="stopwatch stuff/start sw button" to="stopwatch stuff" method="_on_start_sw_button_pressed"]
+[connection signal="pressed" from="stopwatch stuff/stop sw button" to="stopwatch stuff" method="_on_stop_sw_button_pressed"]
+[connection signal="pressed" from="stopwatch stuff/reset sw button" to="stopwatch stuff" method="_on_reset_sw_button_pressed"]

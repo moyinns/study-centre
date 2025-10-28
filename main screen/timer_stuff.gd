@@ -7,7 +7,11 @@ extends Node2D
 @onready var start_timer_button = $"start timer button"
 @onready var stop_timer_button = $"stop timer button"
 
-var total_seconds = 25 * 60
+const WORK_TIME = 25 * 60
+const BREAK_TIME = 5 * 60
+
+var total_seconds = WORK_TIME
+var is_work_time = true
 
 func _ready() -> void:
 	timer_title.text = "work timer"
@@ -38,6 +42,15 @@ func _format_time(seconds: int) -> String:
 	return "%02d:%02d" % [minutes, secs]
 	
 
-
 func _on_switch_button_pressed() -> void:
-	pass # Replace with function body.
+	if is_work_time:
+		is_work_time = false
+		timer_title.text = "break time"
+		total_seconds = BREAK_TIME
+		timer_label.text = _format_time(total_seconds)
+	else:
+		is_work_time = true
+		timer_title.text = "work time"
+		total_seconds = WORK_TIME
+		timer_label.text = _format_time(total_seconds)
+		
