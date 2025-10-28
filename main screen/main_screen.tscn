@@ -1,11 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0pu00ybev5ef"]
+[gd_scene load_steps=7 format=3 uid="uid://c0pu00ybev5ef"]
 
 [ext_resource type="Script" uid="uid://mnshor0jwtdw" path="res://main screen/main_screen.gd" id="1_ifqbj"]
 [ext_resource type="Texture2D" uid="uid://dsyf3qnv8hc34" path="res://main screen/bg main page + notebook.PNG" id="1_ysh8v"]
 [ext_resource type="FontFile" uid="uid://1yodsqdfdd4s" path="res://others/SetiaHati-Regular.ttf" id="2_ye3fn"]
 [ext_resource type="FontFile" uid="uid://cecvhleu5gw54" path="res://others/LEMONMILK-Light.otf" id="4_eejo4"]
+[ext_resource type="Script" uid="uid://laff61aa7orh" path="res://main screen/timer_stuff.gd" id="4_xeb60"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xeb60"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_24h70"]
+bg_color = Color(0.9882353, 0.96862745, 0.94509804, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8509804, 0.42352942, 0.41568628, 1)
 
 [node name="main screen" type="Node2D"]
 script = ExtResource("1_ifqbj")
@@ -49,20 +56,68 @@ text = "1
 13
 14"
 
-[node name="add task" type="Button" parent="."]
-offset_left = 95.0
-offset_top = 707.0
-offset_right = 140.0
-offset_bottom = 737.0
+[node name="timer stuff" type="Node2D" parent="."]
+script = ExtResource("4_xeb60")
+
+[node name="timer box2" type="ColorRect" parent="timer stuff"]
+offset_left = 805.0
+offset_top = 467.0
+offset_right = 1164.116
+offset_bottom = 751.0
+color = Color(0.8509804, 0.42352942, 0.41568628, 1)
+
+[node name="timer box" type="ColorRect" parent="timer stuff"]
+offset_left = 810.0
+offset_top = 471.0
+offset_right = 1159.0
+offset_bottom = 747.0
+color = Color(0.9882353, 0.96862745, 0.94509804, 1)
+
+[node name="timer title" type="Label" parent="timer stuff"]
+offset_left = 813.0
+offset_top = 471.0
+offset_right = 1158.0
+offset_bottom = 527.0
+theme_override_colors/font_color = Color(0.8509804, 0.42352942, 0.41568628, 1)
+theme_override_fonts/font = ExtResource("2_ye3fn")
+theme_override_font_sizes/font_size = 48
+text = "timer"
+horizontal_alignment = 1
+
+[node name="start timer button" type="Button" parent="timer stuff"]
+offset_left = 819.0
+offset_top = 706.0
+offset_right = 925.0
+offset_bottom = 742.0
 theme_override_colors/font_color = Color(0.8509804, 0.42352942, 0.41568628, 1)
 theme_override_fonts/font = ExtResource("4_eejo4")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_xeb60")
-text = "add"
+theme_override_styles/normal = SubResource("StyleBoxFlat_24h70")
+text = "START"
 
-[node name="todo list" type="VBoxContainer" parent="."]
-offset_left = 97.0
-offset_top = 236.0
-offset_right = 416.0
-offset_bottom = 270.0
+[node name="stop timer button" type="Button" parent="timer stuff"]
+offset_left = 1049.0
+offset_top = 706.0
+offset_right = 1155.0
+offset_bottom = 742.0
+theme_override_colors/font_color = Color(0.8509804, 0.42352942, 0.41568628, 1)
+theme_override_fonts/font = ExtResource("4_eejo4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_24h70")
+text = "stop"
 
-[connection signal="pressed" from="add task" to="." method="_on_add_task_pressed"]
+[node name="timer label" type="Label" parent="timer stuff"]
+offset_left = 871.0
+offset_top = 556.0
+offset_right = 1111.0
+offset_bottom = 663.0
+theme_override_colors/font_color = Color(0.9647059, 0.73333335, 0.7176471, 1)
+theme_override_fonts/font = ExtResource("4_eejo4")
+theme_override_font_sizes/font_size = 80
+text = "25:00"
+
+[node name="work timer" type="Timer" parent="timer stuff"]
+
+[node name="break timer" type="Timer" parent="timer stuff"]
+wait_time = 300.0
+
+[connection signal="pressed" from="timer stuff/start timer button" to="timer stuff" method="_on_start_timer_button_pressed"]
+[connection signal="pressed" from="timer stuff/stop timer button" to="timer stuff" method="_on_stop_timer_button_pressed"]
