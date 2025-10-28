@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://conbtuu64ac27"]
+
+[ext_resource type="Texture2D" uid="uid://7cgeiwgjx7t2" path="res://others/checked box.PNG" id="1_bn2jw"]
+[ext_resource type="Texture2D" uid="uid://dsyf3qnv8hc34" path="res://main screen/bg main page + notebook.PNG" id="1_vp123"]
+[ext_resource type="Texture2D" uid="uid://baa8uh5xitlci" path="res://others/unchecked box.PNG" id="2_vp123"]
+[ext_resource type="FontFile" uid="uid://1yodsqdfdd4s" path="res://others/SetiaHati-Regular.ttf" id="3_8b0uc"]
+
+[node name="todo_item" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg main screen" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 1200.0
+offset_bottom = 788.0
+texture = ExtResource("1_vp123")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CheckBox2" type="CheckBox" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_icons/checked = ExtResource("1_bn2jw")
+theme_override_icons/unchecked = ExtResource("2_vp123")
+
+[node name="todo input" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9647059, 0.73333335, 0.7176471, 1)
+theme_override_fonts/font = ExtResource("3_8b0uc")
+theme_override_font_sizes/font_size = 26
