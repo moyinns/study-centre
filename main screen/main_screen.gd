@@ -1,6 +1,19 @@
 extends Node2D
 
 @onready var quote = $"quote"
+@onready var todo_list = $"todo list"
+@onready var todo_template = $"todo list/VBoxContainer/todo template"
+@onready var add_task_button = $"todo list/add button"
+@onready var vboxcontainer = $"todo list/VBoxContainer"
+
+func _ready() -> void:
+	pass
+	
+func _on_add_button_pressed() -> void:
+	print("button pressed!")
+	var new_task = todo_template.duplicate()
+	new_task.visible = true
+	vboxcontainer.add_child(new_task)
 
 func _on_new_quote_button_pressed() -> void:
 	var numb = randi_range(1,10)

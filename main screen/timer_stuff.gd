@@ -16,7 +16,7 @@ var is_work_time = true
 func _ready() -> void:
 	timer_title.text = "work timer"
 	timer_label.text = _format_time(total_seconds)
-	start_timer_button.pressed.connect(_on_start_timer_button_pressed)
+	#start_timer_button.pressed.connect(_on_start_timer_button_pressed)
 	work_timer.timeout.connect(_on_timer_timeout)
 
 func _process(delta: float) -> void:
