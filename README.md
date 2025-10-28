@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <a id="readme-top"></a>
 
 <!-- SHIELDS -->
@@ -150,3 +151,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 [Ouch-shield]: https://img.shields.io/badge/Ouch!-tool-blue?label=Ouch!
 [Ouch-url]: https://github.com/ouch-org/ouch
 [time-screenshot]: https://cloud-l88kldf50-hack-club-bot.vercel.app/0image.png
+=======
+# study-centre
+a cute app to use when studying.
+>>>>>>> e8ba46c0908c9f3a8d28c002aed8e40bcc7bad08
