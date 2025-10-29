@@ -5,9 +5,10 @@ extends Node2D
 @onready var todo_template = $"todo list/VBoxContainer/todo template"
 @onready var add_task_button = $"todo list/add button"
 @onready var vboxcontainer = $"todo list/VBoxContainer"
+@onready var cat = $"cat"
 
 func _ready() -> void:
-	pass
+	cat.play("default")
 	
 func _on_add_button_pressed() -> void:
 	print("button pressed!")
@@ -40,3 +41,11 @@ func new_quote(numb):
 		quote.text = "youve got this!"
 	elif numb == 10:
 		quote.text = "dream big\nstudy hard"
+
+
+func _on_quit_pressed() -> void:
+	get_tree().quit()
+
+
+func _on_h_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(value))

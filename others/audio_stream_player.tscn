@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0lp4s11abqmu"]
+
+[ext_resource type="AudioStream" uid="uid://dw4dx3h2phnqt" path="res://others/cropped 8min chill music.ogg" id="1_yw6lq"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_yw6lq")
+autoplay = true

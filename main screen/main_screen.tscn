@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://c0pu00ybev5ef"]
+[gd_scene load_steps=44 format=3 uid="uid://c0pu00ybev5ef"]
 
 [ext_resource type="Script" uid="uid://mnshor0jwtdw" path="res://main screen/main_screen.gd" id="1_ifqbj"]
 [ext_resource type="Texture2D" uid="uid://dsyf3qnv8hc34" path="res://main screen/bg main page + notebook.PNG" id="1_ysh8v"]
@@ -283,6 +283,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f3uga"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8509804, 0.42352942, 0.41568628, 1)
+
 [node name="main screen" type="Node2D"]
 script = ExtResource("1_ifqbj")
 
@@ -517,17 +525,29 @@ texture_filter = 1
 position = Vector2(622, 580)
 scale = Vector2(6.101563, 6.101563)
 sprite_frames = SubResource("SpriteFrames_2c3cn")
-frame_progress = 0.031879432
+frame_progress = 0.9482622
 
 [node name="cat label" type="Label" parent="."]
-offset_left = 444.0
-offset_top = 696.0
-offset_right = 806.0
-offset_bottom = 752.0
+offset_left = 439.0
+offset_top = 453.0
+offset_right = 801.0
+offset_bottom = 509.0
 theme_override_colors/font_color = Color(0.8509804, 0.42352942, 0.41568628, 1)
 theme_override_fonts/font = ExtResource("7_cxh1e")
 theme_override_font_sizes/font_size = 24
 text = "motivational cat"
+horizontal_alignment = 1
+
+[node name="music label" type="Label" parent="."]
+offset_left = 489.0
+offset_top = 733.0
+offset_right = 550.1111
+offset_bottom = 753.0
+theme_override_colors/font_color = Color(0.8509804, 0.42352942, 0.41568628, 1)
+theme_override_fonts/font = ExtResource("4_eejo4")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_f3uga")
+text = "volume"
 horizontal_alignment = 1
 
 [node name="add button" type="Button" parent="."]
@@ -540,6 +560,17 @@ theme_override_fonts/font = ExtResource("4_eejo4")
 theme_override_styles/normal = SubResource("StyleBoxFlat_24h70")
 text = "add"
 
+[node name="quit" type="Button" parent="."]
+offset_left = 881.0
+offset_top = 69.0
+offset_right = 928.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(0.8509804, 0.42352942, 0.41568628, 1)
+theme_override_fonts/font = ExtResource("4_eejo4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_24h70")
+text = "quit
+"
+
 [node name="todo list" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -551,32 +582,39 @@ offset_bottom = 704.0
 [node name="VBoxContainer" type="VBoxContainer" parent="todo list"]
 layout_mode = 0
 offset_left = 37.0
-offset_top = 30.0
-offset_right = 354.0
-offset_bottom = 90.0
+offset_top = 29.0
+offset_right = 365.0
+offset_bottom = 506.0
 
-[node name="CheckBox" type="CheckBox" parent="todo list/VBoxContainer"]
+[node name="todo template" type="Control" parent="todo list/VBoxContainer"]
+custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="todo list/VBoxContainer/todo template"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 318.0
+offset_bottom = 31.0
 theme_override_icons/checked = ExtResource("11_m8o7k")
 theme_override_icons/unchecked = ExtResource("12_i76hf")
 
-[node name="todo input" type="LineEdit" parent="todo list/VBoxContainer/CheckBox"]
+[node name="todo input" type="LineEdit" parent="todo list/VBoxContainer/todo template"]
 layout_mode = 0
-offset_left = 30.0
-offset_right = 319.0
+offset_left = 40.0
+offset_right = 309.0
 offset_bottom = 30.0
 theme_override_colors/font_color = Color(0.9647059, 0.73333335, 0.7176471, 1)
 theme_override_fonts/font = ExtResource("2_ye3fn")
 theme_override_font_sizes/font_size = 14
 flat = true
 
-[node name="todo template" type="Control" parent="todo list"]
-visible = false
-anchors_preset = 0
-offset_left = 37.0
-offset_top = 65.0
-offset_right = 322.0
-offset_bottom = 65.0
+[node name="HSlider" type="HSlider" parent="."]
+offset_left = 561.0
+offset_top = 727.0
+offset_right = 744.0
+offset_bottom = 757.0
+max_value = 1.5
+step = 0.001
 
 [connection signal="pressed" from="timer stuff/start timer button" to="timer stuff" method="_on_start_timer_button_pressed"]
 [connection signal="pressed" from="timer stuff/stop timer button" to="timer stuff" method="_on_stop_timer_button_pressed"]
@@ -586,3 +624,5 @@ offset_bottom = 65.0
 [connection signal="pressed" from="stopwatch stuff/reset sw button" to="stopwatch stuff" method="_on_reset_sw_button_pressed"]
 [connection signal="pressed" from="new quote button" to="." method="_on_new_quote_button_pressed"]
 [connection signal="pressed" from="add button" to="." method="_on_add_button_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
